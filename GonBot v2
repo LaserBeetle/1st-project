@@ -1,0 +1,86 @@
+import random
+import time
+
+welc = "Welcome! :D \n\nMy name is Gon, I am a bot created by LaserBeetle with the unique goal of playing JOKENPO with humans! >:D \nLet me explain the rules if you're not familiar, it's easy! :)\n\n"
+rule = "You must chose either ROCK, PAPER or SCISSORS, and I'll do the same behind the screen. I promise to be random and fair! O:3\nAfter we've both chosen, we will 'show our hands' so to speak, and see who wins. Fun, right?! XD Let's try one time! >:D"
+
+aroc = "You chose ROCK!\n"
+apap = "You chose PAPER!\n"
+asci = "You chose SCISSORS!\n"
+broc = "I'll go with ROCK!\n"
+bpap = "Let's try PAPER!\n"
+bsci = "For me it's SCISSORS!\n"
+rdy = "Get ready...\nJOKENPO!\n"
+tie = "Tie! X( Try again?\n\n"
+lose = "You lose! >:D Try again?\n\n"
+win = "You win! \o/ Congratulations. Wanna play again?\n\n"
+
+print(welc)
+time.sleep(5)
+print(rule)
+time.sleep(8)
+
+while True:
+	a = int(input('Please choose 1 for rock, 2 for paper or 3 for scissors: '))
+	b = random.randint(1,3)
+	time.sleep(1)
+	if a==1 and b==1:
+		print(rdy)
+		time.sleep(2)
+		print(aroc + broc)
+		time.sleep(1)
+		print(tie)
+	elif a==1 and b==2:
+		print(rdy)
+		time.sleep(2)
+		print(aroc + bpap)
+		time.sleep(1)
+		print(lose)
+	elif a==1 and b==3:
+		print(rdy)
+		time.sleep(2)
+		print(aroc + bsci)
+		time.sleep(1)
+		print(win)
+
+	elif a==2 and b==1:
+		print(rdy)
+		time.sleep(2)
+		print(apap + broc)
+		time.sleep(1)
+		print(win)
+	elif a==2 and b==2:
+		print(rdy)
+		time.sleep(2)
+		print(apap + bpap)
+		time.sleep(1)
+		print(tie)
+	elif a==2 and b==3:
+		print(rdy)
+		time.sleep(2)
+		print(apap + bsci)
+		time.sleep(1)
+		print(lose)
+
+	elif a==3 and b==1:
+		print(rdy)
+		time.sleep(2)
+		print(asci + broc)
+		time.sleep(1)
+		print(lose)
+	elif a==3 and b==2:
+		print(rdy)
+		time.sleep(2)
+		print(asci + bpap)
+		time.sleep(1)
+		print(win)
+	elif a==3 and b==3:
+		print(rdy)
+		time.sleep(2)
+		print(asci + bsci)
+		time.sleep(1)
+		print(tie)
+	
+		continue
+
+
