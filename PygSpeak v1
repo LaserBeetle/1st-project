@@ -1,0 +1,7 @@
+word = input("Please write a word to PygSpeak: ").lower()
+
+if len(word) > 0 and word.isalpha():
+    new_word = word[1:len(word)] + word[0] + "ay"
+    print (new_word)
+else:
+    print("Error")
