@@ -1,0 +1,10 @@
+age = input("What is your current age? ")
+
+expectancy = 90
+age_left = expectancy - int(age)
+
+months = age_left * 12
+weeks = age_left * 52
+days = age_left * 365
+
+print(f"Given a {expectancy}-year life expectancy, you have around {days} days, {weeks} weeks, or {months} months left. Enjoy it.")
