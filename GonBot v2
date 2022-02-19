@@ -1,3 +1,8 @@
+# v1: Basic greeting, rules and outcome text. Basic game logic.
+# v2: Added more complex outcome text, Gon's personality and timed outputs for experience polish.
+
+# TO IMPLEMENT: ASCII graphics, rudimentary Gon strategy, ability to analyze opponent's previous input, best-outta-3/5/7 gamemodes.
+
 import random
 import time
 
