@@ -1,3 +1,5 @@
+# TO IMPLEMENT: age breakdown (18-05-1994) for better accuracy, clock ticking down, country life expectancy, BMI life expectancy (integrate BMI calc?)
+
 age = input("What is your current age? ")
 
 expectancy = 90
