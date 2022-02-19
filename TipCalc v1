@@ -1,3 +1,5 @@
+# TO IMPLEMENT: Customized tip amount, tip = 0, uneven division (payer A can only pay up to $20, etc).
+
 print("Welcome to Tip Calculator!")
 
 bill = input("What was the total bill? $")
