@@ -28,21 +28,21 @@ print('''
 while True:
   print("You're being attacked by a Dragon!.\nQuickly, you must defeat it!")
 
-  lor = input("The Dragon swipes with its claws, do you block, dodge or attack?\n").lower()
+  claw = input("The Dragon swipes with its claws, do you block, dodge or attack?\n").lower()
 
-  if(lor == "block"):
-    sow = input("The Dragon lunges forward for a bite! Do you block, dodge or attack?\n").lower()
+  if(claw == "block"):
+    bite = input("The Dragon lunges forward for a bite! Do you block, dodge or attack?\n").lower()
 
-    if(sow == "dodge"):
-      rbg = input("The Dragon arches it's head backwards; its preparing to breathe fire! Do you block, dodge or attack?\n").lower()
+    if(bite == "dodge"):
+      fire = input("The Dragon arches it's head backwards; its preparing to breathe fire! Do you block, dodge or attack?\n").lower()
 
-      if(rbg == "attack"):
+      if(fire == "attack"):
         print("You managed to stab it right in the neck, flames spew from the wound! The Dragon dies a horrible death and you enjoy a hero's celebration in the local tavern.")
 
-      elif(rbg == "dodge"):
+      elif(fire == "dodge"):
         print("No way to dodge the flames, you burn inside your armor.")
 
-      elif(rbg == "block"):
+      elif(fire == "block"):
         print("Your shield is not big enough to hide behind this time, you burn inside your armor.")
 
       else:
