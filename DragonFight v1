@@ -1,0 +1,58 @@
+print('''
+                                              ,--,  ,.-.
+                ,                   \,       '-,-`,'-.' | ._
+               /|           \    ,   |\         }  )/  / `-,',
+               [ '          |\  /|   | |        /  \|  |/`  ,`
+               | |       ,.`  `,` `, | |  _,...(   (      _',
+   -ART BY-    \  \  __ ,-` `  ,  , `/ |,'      Y     (   \_L\
+    -ZEUS-      \  \_\,``,   ` , ,  /  |         )         _,/
+                 \  '  `  ,_ _`_,-,<._.<        /         /
+                  ', `>.,`  `  `   ,., |_      |         /
+                    \/`  `,   `   ,`  | /__,.-`    _,   `\
+                -,-..\  _  \  `  /  ,  / `._) _,-\`       \
+                 \_,,.) /\    ` /  / ) (-,, ``    ,        |
+                ,` )  | \_\       '-`  |  `(               \
+               /  /```(   , --, ,' \   |`<`    ,            |
+              /  /_,--`\   <\  V /> ,` )<_/)  | \      _____)
+        ,-, ,`   `   (_,\ \    |   /) / __/  /   `----`
+       (-, \           ) \ ('_.-._)/ /,`    /
+       | /  `          `/ \\ V   V, /`     /
+    ,--\(        ,     <_/`\\     ||      /
+   (   ,``-     \/|         \-A.A-`|     /
+  ,>,_ )_,..(    )\          -,,_-`  _--`
+ (_ \|`   _,/_  /  \_            ,--`
+  \( `   <.,../`     `-.._   _,-`
+   `                      ```
+''')
+
+while True:
+  print("You're being attacked by a Dragon!.\nQuickly, you must defeat it!")
+
+  lor = input("The Dragon swipes with its claws, do you block, dodge or attack?\n")
+
+  if(lor == "block"):
+    sow = input("The Dragon lunges forward for a bite! Do you block, dodge or attack?\n")
+
+    if(sow == "dodge"):
+      rbg = input("The Dragon arches it's head backwards; its preparing to breathe fire! Do you block, dodge or attack?\n")
+
+      if(rbg == "attack"):
+        print("You managed to stab it right in the neck, flames spew from the wound! The Dragon dies a horrible death and you enjoy a hero's celebration in the local tavern.")
+
+      elif(rbg == "dodge"):
+        print("No way to dodge the flames, you burn inside your armor.")
+
+      elif(rbg == "block"):
+        print("Your shield is not big enough to hide behind this time, you burn inside your armor.")
+
+      else:
+        print("You took too long to decide and the Dragon finished it's attack, you burn inside your armor.")
+
+    else:
+      print("It's head is massive and the scales are too thick! You are eaten.")
+      break
+
+  else:
+    print("It's claws are way too fast for you, you are sliced open..")
+    break
+  break
