@@ -1,89 +1,87 @@
 # v1: Basic greeting, rules and outcome text. Basic game logic.
-# v2: Added more complex outcome text, Gon's personality and timed outputs for experience polish.
+# v2: Added more complex outcome text, Gon's personality and timed outputs for experience polish
+# v3: Added ASCII, improved code efficiency and decreased code length.
 
-# TO IMPLEMENT: ASCII graphics, rudimentary Gon strategy, ability to analyze opponent's previous input, best-outta-3/5/7 gamemodes.
+# TO IMPLEMENT: BETTER ASCII graphics, rudimentary Gon strategy, ability to analyze opponent's previous input, best-outta-3/5/7 gamemodes.
 
 import random
 import time
 
-welc = "Welcome! :D \n\nMy name is Gon, I am a bot created by LaserBeetle with the unique goal of playing JOKENPO with humans! >:D \nLet me explain the rules if you're not familiar, it's easy! :)\n\n"
-rule = "You must chose either ROCK, PAPER or SCISSORS, and I'll do the same behind the screen. I promise to be random and fair! O:3\nAfter we've both chosen, we will 'show our hands' so to speak, and see who wins. Fun, right?! XD Let's try one time! >:D"
-
-aroc = "You chose ROCK!\n"
-apap = "You chose PAPER!\n"
-asci = "You chose SCISSORS!\n"
-broc = "I'll go with ROCK!\n"
-bpap = "Let's try PAPER!\n"
-bsci = "For me it's SCISSORS!\n"
+repeat = True
 rdy = "Get ready...\nJOKENPO!\n"
-tie = "Tie! X( Try again?\n\n"
-lose = "You lose! >:D Try again?\n\n"
-win = "You win! \o/ Congratulations. Wanna play again?\n\n"
+tie = "Tie! X(\n"
+lose = "You lose! >:D\n"
+win = "You win! \o/ Congratulations.\n"
+welc = "Welcome! :D \n\nMy name is Gon, I am a bot created by LaserBeetle with the unique goal of playing JOKENPO with humans! >:D \nLet me explain the rules if you're not familiar, it's easy! :)\n\n"
+rule = "You must chose either ROCK, PAPER or SCISSORS, and I'll do the same behind the screen. I promise to be random and fair! O:3\nAfter we've both chosen, we will 'show our hands' so to speak, and see who wins. Fun, right?! XD Let's try one time! >:D\n"
+
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+img = [rock, paper, scissors]
 
 print(welc)
 time.sleep(5)
 print(rule)
 time.sleep(8)
 
-while True:
-	a = int(input('Please choose 1 for rock, 2 for paper or 3 for scissors: '))
-	b = random.randint(1,3)
-	time.sleep(1)
-	if a==1 and b==1:
-		print(rdy)
-		time.sleep(2)
-		print(aroc + broc)
-		time.sleep(1)
-		print(tie)
-	elif a==1 and b==2:
-		print(rdy)
-		time.sleep(2)
-		print(aroc + bpap)
-		time.sleep(1)
-		print(lose)
-	elif a==1 and b==3:
-		print(rdy)
-		time.sleep(2)
-		print(aroc + bsci)
-		time.sleep(1)
-		print(win)
-
-	elif a==2 and b==1:
-		print(rdy)
-		time.sleep(2)
-		print(apap + broc)
-		time.sleep(1)
-		print(win)
-	elif a==2 and b==2:
-		print(rdy)
-		time.sleep(2)
-		print(apap + bpap)
-		time.sleep(1)
-		print(tie)
-	elif a==2 and b==3:
-		print(rdy)
-		time.sleep(2)
-		print(apap + bsci)
-		time.sleep(1)
-		print(lose)
-
-	elif a==3 and b==1:
-		print(rdy)
-		time.sleep(2)
-		print(asci + broc)
-		time.sleep(1)
-		print(lose)
-	elif a==3 and b==2:
-		print(rdy)
-		time.sleep(2)
-		print(asci + bpap)
-		time.sleep(1)
-		print(win)
-	elif a==3 and b==3:
-		print(rdy)
-		time.sleep(2)
-		print(asci + bsci)
-		time.sleep(1)
-		print(tie)
-	
-		continue
+while repeat:
+  a = int(input('Please choose 0 for rock, 1 for paper or 2 for scissors: '))
+  b = random.randint(1,3)
+  if a >= 3 or a < 0:
+    print("You choose an invalid number. You lose cheater!")
+  else:
+    print(rdy)
+    time.sleep(2)
+    print(f"You chose...\n{img[a]}")
+    time.sleep(1)
+    print(f"I'll choose...\n{img[b]}")
+    time.sleep(1)
+		
+    if a==0 and b==2:
+      time.sleep(1)
+      print(win)
+    elif a==2 and b==0:
+      time.sleep(1)
+      print(lose)
+			
+    elif a > b:
+      time.sleep(1)
+      print(win)
+    elif a < b:
+      time.sleep(1)
+      print(lose)
+			
+    elif a == b:
+      time.sleep(1)
+      print(tie)
+			
+    repeat = input("Do you wanna play again? y or n:\n")
+    if repeat == "y":
+      repeat = True
+    else:
+      break
