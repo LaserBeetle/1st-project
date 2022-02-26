@@ -1,0 +1,30 @@
+from replit import clear
+from art import logo
+
+repeat = True
+player_pool = {}
+winner = {}
+
+while repeat:
+  print(logo)
+  players = input("What is your name?: ")
+  bids = int(input("How much are you bidding?: $"))
+
+  player_pool[players] = bids
+
+  rep = input("Are there other bidders? 'Yes' or 'No': ").lower()
+  if rep == 'yes':
+    clear()
+  else:
+    repeat = False
+    
+current = "winner"
+winner[current] = 0
+
+for bidder in player_pool:
+  if player_pool[bidder] > winner[current]:
+    del winner[current]
+    current = bidder
+    winner[bidder] = player_pool[bidder]
+
+print(f"The winner is {current}! With an offer of ${winner[current]}.")
