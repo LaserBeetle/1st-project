@@ -1,4 +1,6 @@
-#from art import logo
+# TODO: Include a check for a BlackJack hand (Ace + 10), include ASCII graphics for the final hands, improve PC strategy.
+
+from art import logo
 import random
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
@@ -6,7 +8,7 @@ def blackjack():
   start = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ").lower()
 
   if start == "y":
-    #print(logo)
+    print(logo)
     
     player_cards = random.sample(cards, 2)
     print(f"Your cards: {player_cards}. Current score: {sum(player_cards)}.")
