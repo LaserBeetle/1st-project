@@ -1,0 +1,76 @@
+#from art import logo
+import random
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
+def blackjack():
+  start = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ").lower()
+
+  if start == "y":
+    #print(logo)
+    
+    player_cards = random.sample(cards, 2)
+    print(f"Your cards: {player_cards}. Current score: {sum(player_cards)}.")
+    dealer_cards = random.sample(cards, 2)
+    print(f"Computer first card: {dealer_cards[0]}.\n")
+          
+    def bust_check():
+      if sum(player_cards) > 21 and sum(dealer_cards) > 21:
+        print("You and the computer both busted. It's a draw.")
+        blackjack()
+      elif sum(player_cards) > 21:
+        print("You busted.")
+        blackjack()
+      elif sum(dealer_cards) > 21:
+        print("The computer busted. You win!")
+        blackjack()
+    
+    def blackjack_check():
+      if sum(player_cards) == 21:
+        if dealer_cards != 21:
+          print(f"Your final hand: {player_cards}. Final score: {sum(player_cards)}.")
+          print(f"Computer final hand: {dealer_cards}. Final score: {sum(dealer_cards)}.")
+          print("You win with a Blackjack!\n")
+          blackjack()
+        else:
+          print(f"Your final hand: {player_cards}. Final score: {sum(player_cards)}.")
+          print(f"Computer final hand: {dealer_cards}. Final score: {sum(dealer_cards)}.")
+          print("It's a draw!\n")
+          blackjack()
+    blackjack_check()
+    bust_check()
+
+    repeat = True
+    while repeat == True:
+      one_more = input("Type 'y' to get another card. Type 'n' to pass: ").lower()
+      if one_more == "y":
+        player_cards += random.sample(cards, 1)
+        if sum(player_cards) > 21:
+          player_cards[:] = [1 if a == 11 else a for a in player_cards]
+        print(f"Your cards: {player_cards}. Current score: {sum(player_cards)}.\n")
+      else:
+        repeat = False
+    while sum(dealer_cards) < 17:
+      dealer_cards += random.sample(cards, 1)
+      if sum(dealer_cards) > 21:
+        dealer_cards[:] = [1 if a == 11 else a for a in dealer_cards]
+    
+    print(f"Your final hand: {player_cards}. Final score: {sum(player_cards)}.")
+    print(f"Computer final hand: {dealer_cards}. Final score: {sum(dealer_cards)}.\n")
+    blackjack_check()
+    bust_check()
+
+    if sum(player_cards) > sum(dealer_cards):
+      print("You win!\n")
+      blackjack()
+    elif sum(player_cards) < sum(dealer_cards):
+      print("You lose.\n")
+      blackjack()
+    else:
+      print("It's a draw!\n")
+      blackjack()
+
+  else:
+    print("Goodbye.")
+    exit()
+
+blackjack()
