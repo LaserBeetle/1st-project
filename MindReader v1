@@ -1,0 +1,41 @@
+from art import logo
+import random
+
+def game():
+  print(logo)
+  tries = 0
+  diff = input("Welcome to Mind Reader!\nI am thinking of a number between 1 and 100.\nChoose a difficulty level of 'easy' or 'hard': ").lower()
+  if diff == "easy":
+    tries = 10
+    print("You have 10 tries. Goodluck!")
+  elif diff == "hard":
+    tries = 5
+    print("You have 5 tries. Goodluck!")
+  else:
+    print("Invalid input.")
+    game()
+
+  number = random.randint(1, 100)
+  while tries > 0:
+    tries -= 1
+    guess = int(input("\nPlease take a guess: "))
+    if guess == number:
+      print(f"I was thinking of {number}! You won, congratulations!")
+      break
+    elif guess > number:
+      print("That's too high. Try again.")
+    else:
+      print("That's too low. Try again.")
+    print(f"You have {tries} tries left.")
+
+  if tries == 0:
+    print("You ran out of guesses, you lose.")
+
+  replay = input("Do you want to play again? 'y' or 'n': ")
+  if replay == "y":
+    game()
+  else:
+    print("Goodbye.")
+  return
+      
+game()
