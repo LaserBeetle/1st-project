@@ -1,0 +1,67 @@
+from art import logo, vs
+from game_data import data
+import random
+
+#show logo, select 2 random accounts(A, B) from data dictionary
+def game():
+  acc_a = random.randint(0, 49)
+  acc_b = random.randint(0, 49)
+
+  #ask user which of the 2 accounts have more followers, separate the 2 accounts by showing "vs"
+  correct_guess = True
+  score = 0
+  while correct_guess == True:
+    print(logo)
+    print(f"Your current score is: {score}")
+    
+    print(f"Compare A: {data[acc_a]['name']}, a {data[acc_a]['description']} from {data[acc_a]['country']}.")
+
+    print(vs)
+  
+    print(f"Against B: {data[acc_b]['name']}, a {data[acc_b]['description']} from {data[acc_b]['country']}.")
+    
+    guess = input("Who has more followers? Type 'A' or 'B': ").lower()
+
+    #if the user guessed right, continue comparing (B) account with a new random account and add score.
+    if guess == "a":
+      if data[acc_a]['follower_count'] > data[acc_b]['follower_count']:
+        acc_a = acc_b
+        score += 1
+        acc_b = random.randint(0, 49)
+        
+      #if the user guessed wrong, show the final score and finish the game
+      elif data[acc_b]['follower_count'] > data[acc_a]['follower_count']:
+        print(f"\nYou guessed wrong. Your final score is: {score}")
+        correct_guess = False
+        
+      #if both accounts are the same, repeat the game and replace one of the accounts with a new random one
+      else:
+        acc_b = random.randint(0, 49)
+        
+    elif guess == "b":
+      if data[acc_b]['follower_count'] > data[acc_a]['follower_count']:
+        acc_a = acc_b
+        acc_b = random.randint(0, 49)
+        score += 1
+        
+      elif data[acc_a]['follower_count'] > data[acc_b]['follower_count']:
+        print(f"\nYou guessed wrong. Your final score is: {score}")
+        correct_guess = False
+        
+      else:
+        acc_b = random.randint(0, 49)
+        
+    #if the user types an invalid command, return to comparing the same accounts
+    else:
+      print("You typed an invalid command.")
+
+  #introducing replayability after game over
+  repeat = input("Do you want to play again? Type 'y' or 'n': ").lower()
+  if repeat == "y":
+    game()
+  elif repeat == "n":
+    print("Goodbye.")
+  else:
+    print("You typed an invalid command. Goodbye.")
+
+game()
